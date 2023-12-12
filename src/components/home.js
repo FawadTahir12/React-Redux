@@ -1,14 +1,9 @@
 import React from "react";
 
-function Home() {
+function Home(props) {
+    console.log(props.cardItems, "props in home");
     return(
         <div>
-            <div>
-                <img style={{width:'40px', background:'none',
-                    marginTop:  '10px',
-                    float:'left'
-            }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPdnqiRPOjgxd9nTOahCetS5wJ0XNqPs6c0lv4y6lwzg&s" alt="" />
-            </div>
             <h1>Home</h1>
             <div className="cart-wrapper">
                 <div className="img-wrapper-item">
@@ -42,8 +37,13 @@ function Home() {
                     </span>
                 </div>
 
-                <div className="btn-wrapper-item">
-                    <button style={{marginTop:'15px', 
+                 <div className="btn-wrapper-item">
+                    <button onClick={()=>{
+                        props.addToCardHandel({
+                            price:'1000',
+                            name:'I-phone 15',                        })
+                    }}
+                    style={{marginTop:'15px', 
                     height: '40px', width: '100px',
                     borderRadius: '10px', 
                     backgroundColor: '#000000', 
